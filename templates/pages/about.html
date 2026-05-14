@@ -1,5 +1,6 @@
 
    {% extends "base.html" %}
+   {%load static%}
    
    {% block content %}
 
@@ -26,7 +27,7 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               {% comment %} fix index.html {% endcomment %}
-              <a href="index.html"> <i class="fas fa-home"></i> Home</a>
+              <a href="{%url "pages:index"%}index.html"> <i class="fas fa-home"></i> Home</a>
             </li>
             <li class="breadcrumb-item active">About</li>
           </ol>
@@ -47,7 +48,7 @@
               pariatur!
             </p>
             {% comment %} fix img/about.jpg {% endcomment %}
-            <img src="assets/img/about.jpg" alt="" />
+            <img src={%static "/img/about.jpg" %} alt="" />
             <p class="mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
