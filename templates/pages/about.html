@@ -34,7 +34,7 @@
         </nav>
       </div>
     </section>
-
+{% comment %} {%static "/img/about.jpg" %} {% endcomment %}
     <section id="about" class="py-4">
       <div class="container">
         <div class="row">
@@ -48,7 +48,8 @@
               pariatur!
             </p>
             {% comment %} fix img/about.jpg {% endcomment %}
-            <img src={%static "/img/about.jpg" %} alt="" />
+            {% comment %} <img src={% static 'img/about.jpg'%} alt=''/> {% endcomment %}
+            <img src={% static 'img/about.jpg' %} alt=''/>
             <p class="mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
