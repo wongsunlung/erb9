@@ -24,9 +24,9 @@
               {% comment %} fix about {% endcomment %}
               <a class="nav-link" href={%url "pages:about"%}>About</a>
             </li>
-            <li class="nav-item mr-3">
+            <li {% if '/listings/' == request.path %} class="nav-item active mr-3"{% else %} class="nav-item mr-3"{% endif %}>
               {% comment %} listings.html {% endcomment %}
-              <a class="nav-link" href="listings.html">Inpatient medical services</a>
+              <a class="nav-link" href={%url "listings:index"%}>Inpatient medical services</a>
             </li>
           </ul>
 

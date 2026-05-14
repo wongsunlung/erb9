@@ -1,5 +1,5 @@
-<h1>listings</h1>
-{% extends "content"%}
+
+{% extends "base.html"%}
 {%load static%}
 {%block content%}
 
@@ -25,7 +25,7 @@
           <ol class="breadcrumb">
             {% comment %} fix index {% endcomment %}
             <li class="breadcrumb-item">
-              <a href="{%url "pages:index"%}index.html"> <i class="fas fa-home"></i> Home</a>
+              <a href="{%url "pages:index"%}"> <i class="fas fa-home"></i> Home</a>
             </li>
             <li class="breadcrumb-item active">Browse Listings</li>
           </ol>
@@ -389,4 +389,4 @@
       </div>
     </section>
 
-{% endblock%}
+{% endblock %}
