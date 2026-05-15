@@ -101,7 +101,7 @@
 
           
         </div>
-
+        {% if listings%}
         <div class="row">
           <div class="col-md-12">
             <ul class="pagination">
@@ -109,18 +109,25 @@
                 {% comment %} fix # {% endcomment %}
                 <a class="page-link" href="#">&laquo;</a>
               </li>
+              {% comment %} for loop page number {% endcomment %}
+              {% for i in listings.paginator.page_range%}
+              {% if listings.number == i %}
               <li class="page-item active">
                 {% comment %} fix 1 {% endcomment %}
-                <a class="page-link" href="#">1</a>
+                <a class="page-link">{{i}}</a>
               </li>
+              {% else %}
+              {% comment %} {% endfor %} {% endcomment %}
               <li class="page-item">
                 {% comment %} fix 2 {% endcomment %}
-                <a class="page-link" href="#">2</a>
+                <a class="page-link" href = "?page={{i}}">{{i}}</a>
               </li>
-              <li class="page-item">
+              {% endif %}
+              {% endfor %}
+              {% comment %} <li class="page-item">  {% endcomment %}
                 {% comment %} fix 3 {% endcomment %}
-                <a class="page-link" href="#">3</a>
-              </li>
+                {% comment %} <a class="page-link" href="#">3</a> {% endcomment %}
+              {% comment %} listings</li>  {% endcomment %}
               <li class="page-item">
                 {% comment %} fix # {% endcomment %}
                 <a class="page-link" href="#">&raquo;</a>
@@ -128,6 +135,7 @@
             </ul>
           </div>
         </div>
+        {% endif %}
       </div>
     </section>
 
