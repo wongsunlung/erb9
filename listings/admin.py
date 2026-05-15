@@ -3,7 +3,7 @@ from .models import Listing
 # Register your models here.
 
 class ListingAdmin(admin.ModelAdmin):
-    list_display =('id','title','is_published', 'list_data', "doctor")
+    list_display =('id','title','is_published', 'list_date', "doctor")
     list_display_links =('id', 'title')
     list_filter = ('doctor', )
     list_editable = ('is_published',)
