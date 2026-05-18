@@ -27,7 +27,7 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               {% comment %} fix index.html {% endcomment %}
-              <a href="{%url "pages:index"%}index.html"> <i class="fas fa-home"></i> Home</a>
+              <a href={%url "pages:index"%}> <i class="fas fa-home"></i> Home</a>
             </li>
             <li class="breadcrumb-item active">About</li>
           </ol>
@@ -48,8 +48,8 @@
               pariatur!
             </p>
             {% comment %} fix img/about.jpg {% endcomment %}
-            {% comment %} <img src={% static 'img/about.jpg'%} alt=''/> {% endcomment %}
-            <img src={% static 'img/about.jpg' %} alt=''/>
+            <img src={% static 'img/about.jpg'%} alt=''/>
+            {% comment %} <img src={% static 'img/about.jpg' %} alt=''/> {% endcomment %}
             <p class="mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
@@ -63,7 +63,8 @@
               {% comment %} fix img/kyle.jpg {% endcomment %}
               <img
                 class="card-img-top"
-                src="assets/img/doctors/kyle.jpg"
+                {% comment %} src="assets/img/doctors/kyle.jpg" {% endcomment %}
+                src={%static 'img/kyle.jpg'%}
                 alt="Seller of the month"
               />
               <div class="card-body">
@@ -89,7 +90,8 @@
       </h4>
       <hr />
       {% comment %} fix listing.html {% endcomment %}
-      <a href="listings.html" class="btn btn-secondary text-white btn-lg"
+      {% comment %} href="{%url "pages:index"%}" href="listings.html"{% endcomment %}
+      <a href="{%url "listings:index"%}" class="btn btn-secondary text-white btn-lg"
         >View Our Featured Listings</a
       >
     </section>
@@ -102,7 +104,8 @@
           <div class="col-md-4">
             {% comment %} fix assets/img/doctors/kyle.jpg {% endcomment %}
             <img
-              src="assets/img/doctors/kyle.jpg"
+              {% comment %} src="assets/img/doctors/kyle.jpg" {% endcomment %}
+              src={%static 'img/kyle.jpg'%}
               alt=""
               class="rounded-circle mb-3 img-fluid"
               style="object-fit: cover; width: 300px; height: 300px"
@@ -119,7 +122,8 @@
           <div class="col-md-4">
             {% comment %} fix img/emma.jpg {% endcomment %}
             <img
-              src="assets/img/doctors/emma.jpg"
+              {% comment %} src="assets/img/doctors/emma.jpg" {% endcomment %}
+              src={%static 'img/emma.jpg'%}
               alt=""
               class="rounded-circle mb-3 img-fluid"
               style="object-fit: cover; width: 300px; height: 300px"
@@ -134,7 +138,8 @@
           <div class="col-md-4">
             {% comment %} fix img/jenny.jpg {% endcomment %}
             <img
-              src="assets/img/doctors/jenny.jpg"
+              {% comment %} src="assets/img/doctors/jenny.jpg" {% endcomment %}
+              src={%static 'img/jenny.jpg'%}
               alt=""
               class="rounded-circle mb-3 img-fluid"
               style="object-fit: cover; width: 300px; height: 300px"

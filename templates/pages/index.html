@@ -1,6 +1,6 @@
 
   {% extends "base.html"%}
-  
+  {% load static %}
   {%block content%}
 
     <!-- Showcase -->
@@ -107,7 +107,8 @@
               {% comment %} fix assets/img/ {% endcomment %}
               <img
                 class="card-img-top"
-                src="assets/img/clinics/clinic-1.jpg"
+                {% comment %} src="assets/img/clinics/clinic-1.jpg" {% endcomment %}
+                src={%static 'img/clinic-1.jpg'%}
                 alt=""
               />
               <div class="card-img-overlay">
@@ -147,7 +148,7 @@
                 </div>
                 <hr />
                 {% comment %} fix listing.html {% endcomment %}
-                <a href="listing.html" class="btn btn-primary btn-block"
+                <a href="{% url 'listings:listing' 1 %}" class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
@@ -160,7 +161,7 @@
               {% comment %} assets/img/clinics-2.jpg {% endcomment %}
               <img
                 class="card-img-top"
-                src="assets/img/clinics/clinic-2.jpg"
+                src={% static 'img/clinic-2.jpg' %}
                 alt=""
               />
               <div class="card-img-overlay">
@@ -203,7 +204,7 @@
                 </div>
                 <hr />
                 {% comment %} fix listing.html {% endcomment %}
-                <a href="listing.html" class="btn btn-primary btn-block"
+                <a href={% url 'listings:listing' 1 %} class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
@@ -216,7 +217,7 @@
               {% comment %} assets/img/clinics-3.jpg {% endcomment %}
               <img
                 class="card-img-top"
-                src="assets/img/clinics/clinic-3.jpg"
+                src={%static 'img/clinic-3.jpg'%}
                 alt=""
               />
               <div class="card-img-overlay">
@@ -257,7 +258,7 @@
                 </div>
                 <hr />
                 {% comment %} fix listing.html {% endcomment %}
-                <a href="listing.html" class="btn btn-primary btn-block"
+                <a href={% url 'listings:listing' 1 %} class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
