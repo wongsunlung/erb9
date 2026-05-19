@@ -50,6 +50,7 @@ APPLICATION_APPS = [
     'pages.apps.PagesConfig',
     'doctors.apps.DoctorsConfig',
     'listings.apps.ListingsConfig',#check conflg
+    'accounts.apps.AccountsConfig',
 ]
 #'doctors.ap'ps.DoctorsConfig,
 THIRD_PARTY_APPS = ["debug_toolbar",]#

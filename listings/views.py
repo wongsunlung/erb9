@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from .choices import district_choices, room_type_choices, rooms_choices
 
-# Create your views here.
+# Create your views here.description
 
 def listings(request):#打少t
     listings = Listing.objects.filter(is_published=True).order_by('-list_date')
