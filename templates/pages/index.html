@@ -17,7 +17,7 @@
             </p>
             <div class="search">
               {% comment %} fix action to search.html {% endcomment %}
-              <form action="search.html">
+              <form action={% url "listings:search" %}>
                 <!-- Form Row 1 -->
                 <div class="form-row">
                   <div class="col-md-12 mb-3">
@@ -147,7 +147,7 @@
                 </div>
                 <hr />
                 {% comment %} fix listing.html {% endcomment %}
-                <a href={%url 'listings:listing' 1 %} class="btn btn-primary btn-block"
+                <a href={%url 'listings:listing' listing.id %} class="btn btn-primary btn-block"
                   >More Info</a
                 >
               </div>
