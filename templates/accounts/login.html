@@ -2,7 +2,9 @@
 
 {%block content%}
 <section id="login" class="bg-light py-5">
+  
       <div class="container">
+        {% include 'partials/_alert.html'%}
         <div class="row">
           <div class="col-md-6 mx-auto">
             <div class="card">
@@ -11,7 +13,8 @@
               </div>
               <div class="card-body">
                 {% comment %} form {% endcomment %}
-                <form action={%url "pages:index"%}>
+                <form action={%url "accounts:login"%} method="POST">
+                  {% csrf_token %}
                   <div class="form-group">
                     <label for="username">Username</label>
                     <input

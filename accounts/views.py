@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages,auth
 from django.contrib.auth.models import User
 
 # Create your views here.User.objects.filter(email=email).exists():
@@ -12,27 +13,43 @@ def register(request):
         password2 = request.POST['password2']
         if password == password2:
             if User.objects.filter(username=username).exists():
-                print("Username already exists")
-                return redirect(request,"accounts:register")
+                messages.error(request,"Username already exists")
+                return redirect("accounts:register")
             else:
-                if User.objects.filter(email=email).exists():
-                    print("Email already exists")         
-                    return redirect(request, "accounts:register")
+                if User.objects.filter(email=email.lower()).exists():
+                    messages.error(request,"Email already exists")         
+                    return redirect("accounts:register")
                 else:
-                    user = user.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
+                    user = User.objects.create_user(username=username, email=email.lower(), password=password, first_name=first_name, last_name=last_name)
                     user.save()
-                    print("User created")
-            return redirect(request, "accounts:register")
+                    messages.success(request, "User created")
+            return redirect("accounts:register")
         else:    
-            print("Password do not match")
-            return redirect(request, "accounts:register")        
+            messages.error(request, "Password do not match")
+            return redirect("accounts:register")        
     else:
         
         return render(request, "accounts/register.html")#can't use redirect
 
 def login(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, "You are now logged in")
+            return redirect("accounts:dashboard")
+        else:
+            messages.error(request,"Invalid credentials")
+            return redirect("accounts:login")
     return render(request, "accounts/login.html")
 
 def logout(request):
-    return render(request, "accounts/logout.html")
+    if request.method == "POST":
+        auth.logout(request)
+        return redirect("pages:index")
+    # return render(request, "accounts/logout.html")
 
+def dashboard(request):
+    return render(request, "accounts/dashboard.html")
