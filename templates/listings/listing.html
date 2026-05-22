@@ -190,7 +190,20 @@
                 </ul>
               </div>
             </div>
-
+            {% comment %} Services {% endcomment %}
+            <div class= "row mb-5">
+              <h6 class="text_secondary" Services :></h6>
+              {% if listing.services.all%}
+              <ul>
+                {% for service_tag in listing.services.all %}
+                <li class="mr-3"><h6>{{service_tag.name | title}}</h6>
+                </li>
+                {% endfor%}
+              </ul>
+              {% else %}
+              <h5>No Services</h5>
+              {% endif %}
+            </div>
             <!-- Description -->
             <div class="row mb-5">
               <div class="col-md-12">

@@ -1,6 +1,7 @@
 {% extends "base.html"%}
 {% load widget_tweaks%}
 {% block content %}
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -10,7 +11,8 @@
                  {% csrf_token %}
                  <div class="mb-3">
                     {{form.message | add_label_class:"form-label"}}
-                    {% comment %} form error {% endcomment %}
+                    
+                    <!--form error-->
                     {% if form.message.errors %}
                         <div class="text-danger mb-2">{{form.message.errors}}</div>
                     {% endif %}{{form.message | add_class:"form-control"}}
@@ -25,7 +27,6 @@
         </div>
     </div>
 </div>
-
 
 
 
